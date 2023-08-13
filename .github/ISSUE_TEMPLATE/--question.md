@@ -1,7 +1,6 @@
 ---
 name: "❓ Question"
-about: Please use https://discuss.akka.io for questions
+about: "? Ask a question about Gemini"
 
 ---
 
-Please use https://discuss.akka.io for questions instead of posting them to the issue tracker.
