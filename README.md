@@ -20,7 +20,7 @@ Rooted in the actor model's foundational concepts, Akka has gained substantial t
 
 The business sponsor of Akka, who are not affiliated with Gemini in any way changed the license under which it was offered to one that better supported their economic viability.
 
-As a result, Gemini begins its life as a fork of the Akka projectbut will evolve independently.  
+As a result, Gemini begins its life as a fork of the Akka project when its code base was fully Apache 2.0 licensed and will now evolve independently, decidedly unhindered by commercial constraints. 
 
 Reference Documentation
 -----------------------
