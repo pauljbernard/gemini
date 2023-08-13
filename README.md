@@ -18,7 +18,7 @@ Akka emerged as a response to the complexities of building scalable and fault-to
 
 Rooted in the actor model's foundational concepts, Akka has gained substantial traction across various industries, ranging from finance to gaming, from e-commerce to IoT. Its ability to simplify the complexities of managing concurrency and distribution while ensuring robustness has made it a preferred choice for engineers looking to harness the power of concurrent and distributed computing without sacrificing reliability.
 
-The business sponsor of Akka, who are not affiliated with Gemini in any way changed the license under which it was offered to one that better supported their exonomic viability.
+The business sponsor of Akka, who are not affiliated with Gemini in any way changed the license under which it was offered to one that better supported their economic viability.
 
 As a result, Gemini begins its life as a fork of the Akka projectbut will evolve independently.  
 
