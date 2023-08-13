@@ -1,4 +1,4 @@
-# Welcome! Thank you for interest in contributing to Akka!
+# Welcome! Thank you for interest in contributing to Gemini!
 
 We follow the standard GitHub [fork & pull](https://help.github.com/articles/using-pull-requests/#fork--pull) approach to pull requests. Just fork the official repo, develop in a branch, and submit a PR!
 
@@ -22,7 +22,7 @@ Depending on which version (or sometimes module) you want to work on, you should
 
 ### Tags
 
-Akka uses tags to categorise issues into groups or mark their phase in development.
+Gemini uses tags to categorise issues into groups or mark their phase in development.
 
 Most notably, many tags start with a `t:` prefix (as in `topic:`), categorizing issues in which module they are related. Examples are:
 
@@ -53,7 +53,7 @@ Pull request validation states:
 
 - `validating => [tested | needs-attention]` - signify pull request validation status.
 
-## Akka contributing guidelines
+## Gemini contributing guidelines
 
 These guidelines apply to all Akka projects, by which we mean both the `akka/akka` repository,
 as well as any plugins or additional repositories located under the Akka GitHub organisation.
@@ -89,7 +89,7 @@ The steps are exactly the same for everyone involved in the project, including t
 
 The TL;DR; of the above very precise workflow version is:
 
-1. Fork Akka
+1. Fork Gemini
 2. Hack and test on your feature (on a branch)
 3. Document it
 4. Submit a PR
@@ -119,7 +119,7 @@ Using, for example: current.version 2.5.22, previous.version 2.5, milestone.vers
 
 ### Getting started with sbt
 
-Akka is using the [sbt](https://github.com/sbt/sbt) build system. So the first thing you have to do is to download and install sbt. You can read more about how to do that in the [sbt setup](https://www.scala-sbt.org/1.x/docs/Getting-Started.html) documentation.
+Gemini is using the [sbt](https://github.com/sbt/sbt) build system. So the first thing you have to do is to download and install sbt. You can read more about how to do that in the [sbt setup](https://www.scala-sbt.org/1.x/docs/Getting-Started.html) documentation.
 
 To compile all the Akka core modules, use the `compile` command:
 
@@ -162,7 +162,7 @@ To run a single multi-jvm test:
 
 ```shell
 sbt
-project akka-cluster
+project gemini-cluster
 MultiJvm/testOnly akka.cluster.SunnyWeather
 ```
 
@@ -170,15 +170,15 @@ To format the Scala source code:
 
 ```shell
 sbt
-akka-cluster/scalafmtAll
-akka-persistence/scalafmtAll
+gemini-cluster/scalafmtAll
+gemini-persistence/scalafmtAll
 ```
 
 To format the Java source code:
 
 ```shell
 sbt
-project akka-actor
+project gemini-actor
 javafmtAll
 ```
 
@@ -186,7 +186,7 @@ To keep the *import*s sorted with:
 
 ```shell
 sbt
-project akka-actor
+project gemini-actor
 sortImports
 ```
 
@@ -206,24 +206,24 @@ applyCodeStyle
 
 #### Do not use `-optimize` Scala compiler flag
 
-Akka has not been compiled or tested with `-optimize` Scala compiler flag. (In sbt, you can specify compiler options in the `scalacOptions` key.)
+Gemini has not been compiled or tested with `-optimize` Scala compiler flag. (In sbt, you can specify compiler options in the `scalacOptions` key.)
 Strange behavior has been reported by users that have tried it.
 
 #### Compiling with Graal JIT
 
-Akka, like most Scala projects, compiles faster with the Graal JIT enabled. The easiest way to use it for compiling Akka is to:
+Gemini, like most Scala projects, compiles faster with the Graal JIT enabled. The easiest way to use it for compiling Akka is to:
 
 * Use a JDK > 10
 * Use the following JVM options for SBT e.g. by adding them to the `SBT_OPTS` environment variable: `-XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler`
 
 ### The `validatePullRequest` task
 
-The Akka build includes a special task called `validatePullRequest`, which investigates the changes made as well as dirty
+The Gemini build includes a special task called `validatePullRequest`, which investigates the changes made as well as dirty
 (uncommitted changes) in your local working directory and figures out which projects are impacted by those changes,
 then running tests only on those projects.
 
-For example, changing something in `akka-actor` would cause tests to be run in all projects which depend on it
-(e.g. `akka-actor-tests`, `akka-stream`, `akka-docs` etc.).
+For example, changing something in `Gemini-actor` would cause tests to be run in all projects which depend on it
+(e.g. `Gemini-actor-tests`, `Gemini-stream`, `Gemini-docs` etc.).
 
 To use the task, simply type `validatePullRequest`, and the output should include entries like shown below:
 
@@ -248,10 +248,8 @@ e.g. `allCluster`, `allTyped`.
 
 ### Binary compatibility
 
-Binary compatibility rules and guarantees are described in depth in the [Binary Compatibility Rules
-](https://doc.akka.io/docs/akka/snapshot/common/binary-compatibility-rules.html) section of the documentation.
 
-Akka uses [MiMa](https://github.com/lightbend/mima) to
+Gemini uses [MiMa](https://github.com/lightbend/mima) to
 validate the binary compatibility of incoming pull requests. If your PR fails due to binary compatibility issues, you may see
 an error like this:
 
@@ -293,7 +291,7 @@ All wire protocol changes that may concern rolling upgrades should be documented
 
 ### Protobuf
 
-Akka includes a shaded version of protobuf `3` that is used for internal communication. To generate files,
+Gemini includes a shaded version of protobuf `3` that is used for internal communication. To generate files,
 run `protobufGenerate`. The generated files are put in each project's `src/main/java` and need to be committed.
 The generated files are automatically transformed to use the shaded version of protobuf.
 
@@ -343,7 +341,7 @@ Alternatively, use `akka-docs/paradoxBrowse` to open the generated docs in your 
 
 #### Links to API documentation
 
-Akka Paradox supports directives to link to the Scaladoc- and Javadoc-generated API documentation:
+Gemini Paradox supports directives to link to the Scaladoc- and Javadoc-generated API documentation:
 
 * `@apidoc[Flow]` searches for the class name and creates links to Scaladoc and Javadoc (see variants in [sbt-paradox-apidoc](https://github.com/lightbend/sbt-paradox-apidoc#examples))
 * `@scaladoc[Flow](akka.stream.scaladsl.Flow)` (see [Paradox docs](https://developer.lightbend.com/docs/paradox/current/directives/linking.html#scaladoc-directive))
@@ -364,7 +362,7 @@ The Scaladoc tool needs the `dot` command from the [Graphviz](https://graphviz.o
 
 #### JavaDoc
 
-Akka generates JavaDoc-style API documentation using the [genjavadoc](https://github.com/typesafehub/genjavadoc) sbt plugin, since the sources are written mostly in Scala.
+Gemini generates JavaDoc-style API documentation using the [genjavadoc](https://github.com/typesafehub/genjavadoc) sbt plugin, since the sources are written mostly in Scala.
 
 Generating JavaDoc is not enabled by default, as it's not needed on day-to-day development as it's expected to just work.
 If you'd like to check if your links and formatting look good in JavaDoc (and not only in ScalaDoc), you can generate it by running:
@@ -419,7 +417,7 @@ Enable Travis CI #1
 
 ### Pull request validation workflow details
 
-Akka uses GitHub Actions to validate pull requests, which involves checking code style, run tests, check binary compatibility, etc.
+Gemini uses GitHub Actions to validate pull requests, which involves checking code style, run tests, check binary compatibility, etc.
 
 For existing contributors, Github Actions will run without requiring any manual intervention from a core team member.
 
@@ -469,7 +467,7 @@ It's recommended to run `sbt +sortImports` to keep the *import*s sorted.
 
 #### Java style
 
-Akka uses [the sbt Java Formatter plugin](https://github.com/sbt/sbt-java-formatter) to format Java sources.
+Gemini uses [the sbt Java Formatter plugin](https://github.com/sbt/sbt-java-formatter) to format Java sources.
 
 PR validation includes checking that the Java sources are formatted and will fail if they are not.
 
@@ -511,7 +509,7 @@ tested it becomes an officially supported Akka feature.
 
 ### Java APIs in Akka
 
-Akka aims to keep 100% feature parity between Java and Scala. Implementing even the API for Java in
+Gemini aims to keep 100% feature parity between Java and Scala. Implementing even the API for Java in
 Scala has proven the most viable way to do it, as long as you keep the following in mind:
 
 1. Keep entry points separated in `javadsl` and `scaladsl` unless changing existing APIs which for historical
@@ -608,7 +606,7 @@ disclosure!
 
 ### Continuous integration
 
-Akka currently uses Github Actions to run continuous integration. There are workflows for different purposes, such as:
+Gemini currently uses Github Actions to run continuous integration. There are workflows for different purposes, such as:
 
 * Validating pull requests
 * Nightly builds
